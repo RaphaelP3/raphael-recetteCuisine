@@ -14,16 +14,26 @@
         <div>
             <form action="" id="form-recette">
                 <label for="nom">Nom du plat</label>
-                <input type="text" name="nom" id="nom" placeholder="Entrer le nom de la recette">
+                <input type="text" name="nom" id="nom" placeholder="Entrer le nom du plat">
                 <label for="recette">Recette</label>
                 <input type="text" name="recette" id="recette" placeholder="Entrer la recette">
+                <label for="plat">Plat</label>
+                <select name="plat" id="plat">
+                    <option value="Entrée">Entrée</option>
+                    <option value="Plat de résistance">Plat de résistance</option>
+                    <option value="Dessert">Dessert</option>
+                </select>
                 <button id="btn-form">Enregistrer</button>
             </form>
         </div>
 
         <!--Liste des recettes-->
         <div>
-            <div id="result"></div>
+            <div id="afficher-nom"></div>
+            <div id="afficher-recette"></div>
+            <div id="afficher-plat"></div>
+            <div id="favoris-btn"></div>
+            <div id="supprimer-btn"></div>
         </div>
 
 
