@@ -5,11 +5,9 @@ const recette = document.getElementById('recette')
 const plat = document.getElementById('plat')
 const btnForm = document.getElementById('btn-form')
 const afficherTout = document.getElementById('result')
-let recettesFinies = JSON.parse(localStorage.getItem('users')) || [];
+let recettesFinies = JSON.parse(localStorage.getItem('recettesFinies')) || [];
 //Const pour l'affichage de la recette
-const afficherNom = document.getElementById('afficher-nom')
 const afficherRecette = document.getElementById('afficher-recette')
-const afficherPlat = document.getElementById('afficher-plat')
 const favorisBouton = document.getElementById('favoris-btn')
 const supprimerBouton = document.getElementById('supprimer-btn')
 
@@ -36,21 +34,25 @@ function sauvegardeRecette() {
     localStorage.setItem('recettesFinies', JSON.stringify(recettesFinies))
 }
 
+function supprimerRecette(index) {
+    recettesFinies.splice(index, 1);
+    sauvegardeRecette();
+    Recette();
+}
+
+
 
 function Recette() {
-    afficherNom.innerHTML=''
-    afficherRecette.innerHTML=''
-    afficherPlat.innerHTML=''
-    favorisBouton.innerHTML=''
-    supprimerBouton.innerHTML=''
+    afficherRecette.innerHTML = '';
 
-
-    recettesFinies.forEach((recetteFinie) => {
-        afficherNom.innerHTML += `<h2>${recetteFinie.nom}</h2>`
-        afficherRecette.innerHTML += `<p>${recetteFinie.recette}</p>`
-        afficherPlat.innerHTML += `<p>${recetteFinie.plat}</p>`
-        favorisBouton.innerHTML += `<button>Favoris</button>`
-        supprimerBouton.innerHTML += `<button>Supprimer</button>`
-
-    })
+    recettesFinies.forEach((recetteFinie, index) => {
+        afficherRecette.innerHTML += `
+            <div class="carte-recette">
+                <h2>${recetteFinie.nom}</h2>
+                <p>${recetteFinie.recette}</p>
+                <p>${recetteFinie.plat}</p>
+                <button onclick="supprimerRecette(${index})">Supprimer</button>
+            </div>
+        `;
+    });
 }

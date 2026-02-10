@@ -11,30 +11,29 @@
     <h1>Recettes de cuisine</h1>
        
         <!--Formulaire de récupération de la recette-->
-        <div>
-            <form action="" id="form-recette">
+        <div >
+            <form action="" id="form-recette" class="formulaire">
                 <label for="nom">Nom du plat</label>
-                <input type="text" name="nom" id="nom" placeholder="Entrer le nom du plat">
+                <input type="text" name="nom" id="nom" placeholder="Entrer le nom de votre plat" class="input">
                 <label for="recette">Recette</label>
-                <input type="text" name="recette" id="recette" placeholder="Entrer la recette">
+                <!-- <input type="text" name="recette" id="recette" placeholder="Entrer la recette"> -->
+                <textarea class="textarea" id="recette" name="recette" placeholder="Entrer votre recette"></textarea>
                 <label for="plat">Plat</label>
-                <select name="plat" id="plat">
+                <select name="plat" id="plat" class="select">
                     <option value="Entrée">Entrée</option>
                     <option value="Plat de résistance">Plat de résistance</option>
                     <option value="Dessert">Dessert</option>
                 </select>
-                <button id="btn-form">Enregistrer</button>
+                <div class="btn">
+                    <button type="submit" id="btn-form">Enregistrer</button>
+                </div>
             </form>
         </div>
 
         <!--Liste des recettes-->
-        <div>
-            <div id="afficher-nom"></div>
-            <div id="afficher-recette"></div>
-            <div id="afficher-plat"></div>
-            <div id="favoris-btn"></div>
-            <div id="supprimer-btn"></div>
-        </div>
+    <div class="recette">
+    <div id="afficher-recette"></div>
+</div>
 
 
 
