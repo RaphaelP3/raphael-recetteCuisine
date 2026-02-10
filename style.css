@@ -4,6 +4,12 @@ body {
     justify-content: center;
 }
 
+
+.tri {
+    display:flex;
+    gap: 1em;
+}
+
 .formulaire {
     display: flex;
     flex-direction: column;
@@ -25,7 +31,6 @@ body {
 .recette {
     display: flex; 
     flex-direction: column;
-    border: 1px solid black;
     padding: 1em;
 }
 
@@ -37,7 +42,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;  
-    width: 30%;
+    width: 100px;
 }
 
 .carte-recette {

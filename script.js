@@ -1,4 +1,5 @@
 //Const formulaire
+const searchInput = document.getElementById('search')
 const formRecette = document.getElementById('form-recette')
 const nomRecette = document.getElementById('nom')
 const recette = document.getElementById('recette')
@@ -8,6 +9,7 @@ const afficherTout = document.getElementById('result')
 let recettesFinies = JSON.parse(localStorage.getItem('recettesFinies')) || [];
 //Const pour l'affichage de la recette
 const afficherRecette = document.getElementById('afficher-recette')
+const trierBouton = document.getElementById('btn-tri')
 const favorisBouton = document.getElementById('favoris-btn')
 const supprimerBouton = document.getElementById('supprimer-btn')
 
@@ -28,7 +30,7 @@ formRecette.addEventListener('submit', function (e) {
     formRecette.reset();
 })
 
-Recette(); 
+recette(); 
 
 //Enregistrer la recette dans le localStorage
 function sauvegardeRecette() {
@@ -39,11 +41,11 @@ function sauvegardeRecette() {
 function supprimerRecette(index) {
     recettesFinies.splice(index, 1);
     sauvegardeRecette();
-    Recette();
+    recette();
 }
 
 //Afficher la recette
-function Recette() {
+function recette() {
     afficherRecette.innerHTML = '';
 
     recettesFinies.forEach((recetteFinie, index) => {
@@ -58,3 +60,15 @@ function Recette() {
         `;
     });
 }
+
+function chercher() {
+    const plats = plat.value; 
+    let afficherPlat = [];
+    
+    if (plat) {
+        afficherPlat = recettesFinies.filter(p =>p.plat === plat)
+    } 
+    recette(afficherPlat)
+}
+
+trierBouton.addEventListener('click', chercher)
