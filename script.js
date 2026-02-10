@@ -12,7 +12,7 @@ const favorisBouton = document.getElementById('favoris-btn')
 const supprimerBouton = document.getElementById('supprimer-btn')
 
 
-
+//Ecouteur d'évènements du formulaire
 formRecette.addEventListener('submit', function (e) {
     e.preventDefault(); 
 
@@ -30,18 +30,19 @@ formRecette.addEventListener('submit', function (e) {
 
 Recette(); 
 
+//Enregistrer la recette dans le localStorage
 function sauvegardeRecette() {
     localStorage.setItem('recettesFinies', JSON.stringify(recettesFinies))
 }
 
+//Supprimer la recette du localStorage
 function supprimerRecette(index) {
     recettesFinies.splice(index, 1);
     sauvegardeRecette();
     Recette();
 }
 
-
-
+//Afficher la recette
 function Recette() {
     afficherRecette.innerHTML = '';
 
@@ -51,7 +52,8 @@ function Recette() {
                 <h2>${recetteFinie.nom}</h2>
                 <p>${recetteFinie.recette}</p>
                 <p>${recetteFinie.plat}</p>
-                <button onclick="supprimerRecette(${index})">Supprimer</button>
+                <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button>
+                
             </div>
         `;
     });

@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .formulaire {
     display: flex;
     flex-direction: column;
@@ -17,7 +23,10 @@
 }
 
 .recette {
-
+    display: flex; 
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 1em;
 }
 
 .textarea {
@@ -29,4 +38,14 @@
     justify-content: center;
     align-items: center;  
     width: 30%;
+}
+
+.carte-recette {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    border: 1px solid black;
+    padding: 1em;
+    margin-bottom: 1em;
+    width: 50%;
 }
