@@ -26,7 +26,7 @@ formRecette.addEventListener('submit', function (e) {
 
     recettesFinies.push(recetteFinie)
     sauvegardeRecette(); 
-    Recette();
+    recette();
     formRecette.reset();
 })
 
