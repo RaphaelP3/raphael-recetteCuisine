@@ -55,12 +55,12 @@ function recettes(liste = recettesFinies) {
                 <p>${recetteFinie.recette}</p>
                 <p>${recetteFinie.plat}</p>
                 <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button>
-                
+                <button class="btn-favoris" data-id="${index}" onclick={favoris.favori ? 'Retirer des favoris' : 'Ajouter au favoris'}>Favoris</button> 
             </div>
         `;
     });
 }
-
+//Fonction de tri par type de plat 
 function chercher() {
     const plats = platTri.value; 
     
@@ -70,6 +70,36 @@ function chercher() {
     } 
     const afficherPlat = recettesFinies.filter(r => r.plat === plats);
     recettes(afficherPlat);
+    //Const pour les favoris
 }
 
 trierBouton.addEventListener('click', chercher)
+
+class favoriteRecette {
+    constructor() {
+        const saved = localStorage.getItem("favoris")
+        this.recettesFinies = saved ? JSON.parse(saved) : []
+    }
+
+    ajouterRecette(){
+
+    }
+
+    enregistrerRecette(){
+
+    }
+
+    supprimerRecette(){
+
+    }
+
+    tousLesFavoris() {
+
+    }
+
+    favori(){
+
+    }
+
+
+}

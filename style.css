@@ -8,6 +8,7 @@ body {
 .tri {
     display:flex;
     gap: 1em;
+    width: 50%;
 }
 
 .formulaire {
@@ -28,6 +29,10 @@ body {
     width: 20%;
 }
 
+.select-tri{
+    width: 20%;
+}
+
 .recette {
     display: flex; 
     flex-direction: column;
@@ -43,6 +48,10 @@ body {
     justify-content: center;
     align-items: center;  
     width: 100px;
+}
+
+.btn-favoris{
+    
 }
 
 .carte-recette {
