@@ -1,7 +1,6 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 
@@ -11,6 +10,21 @@ body {
     width: 50%;
 }
 
+.select-tri{
+    width: 20%;
+}
+
+.recette {
+    display: flex; 
+    padding: 1em;
+    width: 100%;
+}
+
+.section{
+    display: flex;
+    justify-content: center;
+}
+
 .formulaire {
     display: flex;
     flex-direction: column;
@@ -18,7 +32,6 @@ body {
     width: 50%;
     border: 1px solid black;
     padding: 1em;
-
 }
 
 .input{
@@ -27,16 +40,6 @@ body {
 
 .select{
     width: 20%;
-}
-
-.select-tri{
-    width: 20%;
-}
-
-.recette {
-    display: flex; 
-    flex-direction: column;
-    padding: 1em;
 }
 
 .textarea {
@@ -50,8 +53,25 @@ body {
     width: 100px;
 }
 
+.btn-recette{
+    display: flex;
+    gap: 1em;
+}
+
+
 .btn-favoris{
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    width: 100px;
+}
+
+
+#afficher-recette{
+    display: flex;
+    width: 100%;
+    padding: 1em;
+    gap: 1em;
 }
 
 .carte-recette {

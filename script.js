@@ -54,8 +54,9 @@ function recettes(liste = recettesFinies) {
                 <h2>${recetteFinie.nom}</h2>
                 <p>${recetteFinie.recette}</p>
                 <p>${recetteFinie.plat}</p>
-                <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button>
-                <button class="btn-favoris" data-id="${index}" onclick={favoris.favori ? 'Retirer des favoris' : 'Ajouter au favoris'}>Favoris</button> 
+                <div class="btn-recette">
+                <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button> 
+                </div>
             </div>
         `;
     });
@@ -75,14 +76,14 @@ function chercher() {
 
 trierBouton.addEventListener('click', chercher)
 
-class favoriteRecette {
+class favorisRecette {
     constructor() {
         const saved = localStorage.getItem("favoris")
         this.recettesFinies = saved ? JSON.parse(saved) : []
     }
 
     ajouterRecette(){
-
+        
     }
 
     enregistrerRecette(){
@@ -103,3 +104,5 @@ class favoriteRecette {
 
 
 }
+
+const favoris = new favorisRecette()
