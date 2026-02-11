@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,45 +8,58 @@
     <script src="/script.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Recettes de cuisine</h1>
+    <header>
+        <nav class="nav">
+            <h1>Recettes de cuisine</h1>
+            <!--Tri des plats-->
+                <select name="plat" id="plat-tri" class="select-tri">
+                    <option value="Tous">Tous les plats</option>
+                    <option value="Entrée">Entrée</option>
+                    <option value="Plat de résistance">Plat de résistance</option>
+                    <option value="Dessert">Dessert</option>
+                    <option value="Favoris">Favoris</option>
+                </select>
+                <button class="btn" id="btn-tri">Trier</button>
+        </nav>
+    </header>
+    <main>
+        <!--Liste des recettes-->
+        <div class="recette">
+            <div id="afficher-recette"></div>
+        </div>
 
- <!--Tri des plats-->
-    <div class="tri">
-        <select name="plat" id="plat-tri" class="select-tri">
-                <option value="Tous">Tous les plats</option>
-                <option value="Entrée">Entrée</option>
-                <option value="Plat de résistance">Plat de résistance</option>
-                <option value="Dessert">Dessert</option>
-                <option value="Favoris">Favoris</option>
-        </select>
-        <button class="btn" id="btn-tri">Trier</button>
-    </div>
-
- <!--Liste des recettes-->
-    <div class="recette">
-    <div id="afficher-recette"></div>
-</div>
-
-<!--Formulaire de récupération de la recette-->
+        <!--Formulaire de récupération de la recette-->
         <section class="section">
             <form action="" id="form-recette" class="formulaire">
                 <label for="nom">Nom du plat</label>
-                <input type="text" name="nom" id="nom" placeholder="Entrer le nom de votre plat" class="input">
-                <label for="recette">Recette</label>
-                <!-- <input type="text" name="recette" id="recette" placeholder="Entrer la recette"> -->
-                <textarea class="textarea" id="recette" name="recette" placeholder="Entrer votre recette"></textarea>
-                <label for="plat">Plat</label>
+                <input type="text" name="nom" id="nom" placeholder="Entrez le nom de votre plat" class="input">
+                <label for="plat">Type de plat</label>
                 <select name="plat" id="plat-form" class="select">
                     <option value="Tous">Tous les plats</option>
                     <option value="Entrée">Entrée</option>
                     <option value="Plat de résistance">Plat de résistance</option>
                     <option value="Dessert">Dessert</option>
                 </select>
+                <label for="recette">Recette</label>
+                <textarea class="textarea" id="recette" name="recette" placeholder="Entrez votre recette"></textarea>
+                
                 <div class="btn">
                     <button type="submit" id="btn-form">Enregistrer</button>
                 </div>
             </form>
         </section>
+    </main>
+    <footer>
+        <ul class="ul">
+            <div class="li">
+                <li>Mentions légales</li>
+                <li>CGU</li>
+                <li>Contact</li>
+            </div>
+        </ul>
+    </footer>
 </body>
+
 </html>

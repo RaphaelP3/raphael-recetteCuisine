@@ -56,6 +56,7 @@ function recettes(liste = recettesFinies) {
                 <p>${recetteFinie.plat}</p>
                 <div class="btn-recette">
                 <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button> 
+                <button class="btn-favoris">Favoris</button> 
                 </div>
             </div>
         `;
@@ -71,7 +72,6 @@ function chercher() {
     } 
     const afficherPlat = recettesFinies.filter(r => r.plat === plats);
     recettes(afficherPlat);
-    //Const pour les favoris
 }
 
 trierBouton.addEventListener('click', chercher)
@@ -83,7 +83,7 @@ class favorisRecette {
     }
 
     ajouterRecette(){
-        
+
     }
 
     enregistrerRecette(){
