@@ -3,7 +3,8 @@ const searchInput = document.getElementById('search')
 const formRecette = document.getElementById('form-recette')
 const nomRecette = document.getElementById('nom')
 const recette = document.getElementById('recette')
-const plat = document.getElementById('plat')
+const platForm = document.getElementById('plat-form');
+const platTri = document.getElementById('plat-tri');
 const btnForm = document.getElementById('btn-form')
 let recettesFinies = JSON.parse(localStorage.getItem('recettesFinies')) || [];
 //Const pour l'affichage de la recette
@@ -20,7 +21,7 @@ formRecette.addEventListener('submit', function (e) {
     const recetteFinie = {
         nom : nomRecette.value, 
         recette : recette.value,
-        plat : plat.value
+        plat : platForm.value
     }
 
     recettesFinies.push(recetteFinie)
@@ -44,10 +45,10 @@ function supprimerRecette(index) {
 }
 
 //Afficher la recette
-function recettes() {
+function recettes(liste = recettesFinies) {
     afficherRecette.innerHTML = '';
 
-    recettesFinies.forEach((recetteFinie, index) => {
+    liste.forEach((recetteFinie, index) => {
         afficherRecette.innerHTML += `
             <div class="carte-recette">
                 <h2>${recetteFinie.nom}</h2>
@@ -61,13 +62,14 @@ function recettes() {
 }
 
 function chercher() {
-    const plats = plat.value; 
-    let afficherPlat = [];
+    const plats = platTri.value; 
     
-    if (plat) {
-        afficherPlat = recettesFinies.filter(p =>p.plat === plat)
+    if (plats === "Tous") {
+    recettes(); 
+        return;
     } 
-    recettes(afficherPlat)
+    const afficherPlat = recettesFinies.filter(r => r.plat === plats);
+    recettes(afficherPlat);
 }
 
 trierBouton.addEventListener('click', chercher)
