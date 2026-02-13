@@ -21,7 +21,7 @@
                     <option value="Dessert">Dessert</option>
                     <option value="Favoris">Favoris</option>
                 </select>
-                <button class="btn" id="btn-tri">Trier</button>
+                <button class="btn-trier" id="btn-tri">Trier</button>
         </nav>
     </header>
     <main>
@@ -34,7 +34,7 @@
         <section class="section">
             <form action="" id="form-recette" class="formulaire">
                 <label for="nom">Nom du plat</label>
-                <input type="text" name="nom" id="nom" placeholder="Entrez le nom de votre plat" class="input">
+                <input type="text" name="nom" id="nom" placeholder="Entrez le nom de votre plat" class="input" required>
                 <label for="plat">Type de plat</label>
                 <select name="plat" id="plat-form" class="select">
                     <option value="Tous">Tous les plats</option>
@@ -43,11 +43,9 @@
                     <option value="Dessert">Dessert</option>
                 </select>
                 <label for="recette">Recette</label>
-                <textarea class="textarea" id="recette" name="recette" placeholder="Entrez votre recette"></textarea>
+                <textarea class="textarea" id="recette" name="recette" placeholder="Entrez votre recette" required></textarea>
+                <button class="btn" type="submit" id="btn-form">Enregistrer</button>
                 
-                <div class="btn">
-                    <button type="submit" id="btn-form">Enregistrer</button>
-                </div>
             </form>
         </section>
     </main>

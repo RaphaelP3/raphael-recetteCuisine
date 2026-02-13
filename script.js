@@ -16,22 +16,22 @@ const supprimerBouton = document.getElementById('supprimer-btn')
 
 //Ecouteur d'évènements du formulaire
 formRecette.addEventListener('submit', function (e) {
-    e.preventDefault(); 
+    e.preventDefault();
 
     const recetteFinie = {
-        nom : nomRecette.value, 
-        recette : recette.value,
-        plat : platForm.value,
-        favori : false
+        nom: nomRecette.value,
+        recette: recette.value,
+        plat: platForm.value,
+        favori: false
     }
 
     recettesFinies.push(recetteFinie)
-    sauvegardeRecette(); 
+    sauvegardeRecette();
     recettes();
     formRecette.reset();
 })
 
-recettes(); 
+recettes();
 
 //Enregistrer la recette dans le localStorage
 function sauvegardeRecette() {
@@ -45,49 +45,45 @@ function supprimerRecette(index) {
     recettes();
 }
 
-function toggleFavori(index) {
+//Sauvegarde les favoris si ils existent pas
+function gestionFavori(index) {
     recettesFinies[index].favori = !recettesFinies[index].favori;
     sauvegardeRecette();
     recettes();
 }
 
-
-
-
 //Afficher la recette
 function recettes(liste = recettesFinies) {
     afficherRecette.innerHTML = '';
-    liste.forEach((recetteFinie, index) => {    
-        
-        const texteBtn = recetteFinie.favori ? "Retirer ⭐" : "Favori ⭐";
+    liste.forEach((recetteFinie, index) => {
 
         afficherRecette.innerHTML += `
             <div class="carte-recette">
-                <h2>${recetteFinie.nom}</h2>
-                <p>${recetteFinie.recette}</p>
-                <p>${recetteFinie.plat}</p>
-                <div class="btn-recette">
-                <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button> 
-            <button onclick="toggleFavori(${index})">${texteBtn}</button>
+                <div class="titre-recette">
+                <h2>${recetteFinie.nom}</h2> 
+                <button class="btn" onclick="gestionFavori(${index})">${recetteFinie.favori ? "Retirer ⭐" : "Ajouter ☆"}</button>
                 </div>
+                <h3><strong>${recetteFinie.plat}</strong></h3>
+                <p>${recetteFinie.recette}</p>
+                <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button> 
             </div>
         `;
     });
 }
 //Fonction de tri par type de plat 
 function chercher() {
-    const plats = platTri.value; 
-     
+    const plats = platTri.value;
+
     if (plats === "Favoris") {
-    const favs = recettesFinies.filter(r => r.favori);
-    recettes(favs);
-    return;
-} 
-     if (plats === "Tous") {
-    recettes(); 
+        const favs = recettesFinies.filter(r => r.favori);
+        recettes(favs);
         return;
-    } 
-   
+    }
+    if (plats === "Tous") {
+        recettes();
+        return;
+    }
+
     const afficherPlat = recettesFinies.filter(r => r.plat === plats);
     recettes(afficherPlat);
 }
