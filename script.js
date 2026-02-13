@@ -21,7 +21,8 @@ formRecette.addEventListener('submit', function (e) {
     const recetteFinie = {
         nom : nomRecette.value, 
         recette : recette.value,
-        plat : platForm.value
+        plat : platForm.value,
+        favori : false
     }
 
     recettesFinies.push(recetteFinie)
@@ -44,11 +45,22 @@ function supprimerRecette(index) {
     recettes();
 }
 
+function toggleFavori(index) {
+    recettesFinies[index].favori = !recettesFinies[index].favori;
+    sauvegardeRecette();
+    recettes();
+}
+
+
+
+
 //Afficher la recette
 function recettes(liste = recettesFinies) {
     afficherRecette.innerHTML = '';
+    liste.forEach((recetteFinie, index) => {    
+        
+        const texteBtn = recetteFinie.favori ? "Retirer ⭐" : "Favori ⭐";
 
-    liste.forEach((recetteFinie, index) => {
         afficherRecette.innerHTML += `
             <div class="carte-recette">
                 <h2>${recetteFinie.nom}</h2>
@@ -56,7 +68,7 @@ function recettes(liste = recettesFinies) {
                 <p>${recetteFinie.plat}</p>
                 <div class="btn-recette">
                 <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button> 
-                <button class="btn-favoris">Favoris</button> 
+            <button onclick="toggleFavori(${index})">${texteBtn}</button>
                 </div>
             </div>
         `;
@@ -65,44 +77,20 @@ function recettes(liste = recettesFinies) {
 //Fonction de tri par type de plat 
 function chercher() {
     const plats = platTri.value; 
-    
-    if (plats === "Tous") {
+     
+    if (plats === "Favoris") {
+    const favs = recettesFinies.filter(r => r.favori);
+    recettes(favs);
+    return;
+} 
+     if (plats === "Tous") {
     recettes(); 
         return;
     } 
+   
     const afficherPlat = recettesFinies.filter(r => r.plat === plats);
     recettes(afficherPlat);
 }
 
 trierBouton.addEventListener('click', chercher)
 
-class favorisRecette {
-    constructor() {
-        const saved = localStorage.getItem("favoris")
-        this.recettesFinies = saved ? JSON.parse(saved) : []
-    }
-
-    ajouterRecette(){
-
-    }
-
-    enregistrerRecette(){
-
-    }
-
-    supprimerRecette(){
-
-    }
-
-    tousLesFavoris() {
-
-    }
-
-    favori(){
-
-    }
-
-
-}
-
-const favoris = new favorisRecette()
