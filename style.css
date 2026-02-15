@@ -94,11 +94,12 @@ main {
     width: 100px;
 }
 
-#afficher-recette{
-    display: flex;
+#afficher-recette {
+    display: grid;
+    grid-template-columns: 1fr; /* mobile par défaut */
+    gap: 1em;
     width: 100%;
     padding: 1em;
-    gap: 1em;
 }
 
 .carte-recette {
@@ -129,4 +130,18 @@ footer{
     cursor: pointer;
 }
 
+
+/* Tablette */
+@media screen and (min-width: 768px) {
+    #afficher-recette {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop */
+@media screen and (min-width: 1024px) {
+    #afficher-recette {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
 
