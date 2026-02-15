@@ -1,0 +1,247 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    background-color: rgb(207, 206, 206);
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    width: 100%;
+    background-color: rgb(235, 197, 132);
+    position: fixed;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    padding: 1em;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.nav h1 {
+    color: rgb(232, 129, 45);
+
+}
+
+.recherche {
+    display: flex;
+    gap: 1em;
+}
+
+.recherche-input {
+    font-size: 16px;
+    width: 100px;
+}
+
+.trier {
+    display: flex;
+    gap: 1em;
+}
+
+.select-tri {
+    width: 200px;
+    font-size: large;
+    padding: 5px;
+}
+
+.btn-trier {
+    width: 100px;
+    font-size: large;
+    cursor: pointer;
+}
+
+main {
+    flex: 1;
+}
+
+.recette {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5em;
+}
+
+.input {
+    width: 50%;
+}
+
+.select {
+    width: 20%;
+}
+
+.textarea {
+    height: 200px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    cursor: pointer;
+}
+
+.btn-favoris {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    cursor: pointer;
+}
+
+#afficher-recette {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    width: 100%;
+    padding: 1em;
+}
+
+.carte-recette {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: 1em;
+    border-radius: 5px;
+    padding: 1em;
+    margin-bottom: 1em;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Pour ne pas créer un débordement avec un mot trop long */
+.carte-recette p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.titre-recette {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 3px;
+    background-color: rgb(219, 140, 55);
+    padding: 1em;
+}
+
+.contenu-recette {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    gap: 1em;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: 1em;
+    width: 50%;
+    border: 1px solid black;
+    padding: 1em;
+}
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1em;
+    margin-top: 3em;
+    background-color: black;
+    bottom: 0;
+}
+
+.ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    list-style: none;
+    color: white;
+    padding: 0;
+}
+
+.li{
+    cursor: pointer;
+}
+
+@media screen and (width < 768px) {
+    header {
+        width: 100%;
+        background-color: rgb(235, 197, 132);
+        position: fixed;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
+        padding: 1em;
+        text-align: center;
+    }
+
+    .nav h1 {
+        font-size: 24px;
+    }
+
+    .select-tri {
+        width: 150px;
+        font-size: medium;
+        padding: 5px;
+    }
+
+    .btn-trier {
+        width: 75px;
+        font-size: medium;
+        cursor: pointer;
+    }
+
+    main {
+        margin-top: 120px;
+    }
+
+    .formulaire {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .nav h1 {
+        font-size: 30px;
+    }
+
+    #afficher-recette {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .formulaire {
+        width: 70%;
+    }
+
+    .ul {
+        flex-direction: row;
+        gap: 5em;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #afficher-recette {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
