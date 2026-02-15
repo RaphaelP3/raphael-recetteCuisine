@@ -13,15 +13,24 @@
     <header>
         <nav class="nav">
             <h1>Recettes de cuisine</h1>
+
+            <!--Tri par mot-->
+            <div class="recherche">
+                <input class="recherche-input" type="text" id="search" placeholder="Rechercher...">
+                <button class="btn-trier" id="chercher-mot">Chercher</button>
+            </div>
+
             <!--Tri des plats-->
-                <select name="plat" id="plat-tri" class="select-tri">
-                    <option value="Tous">Tous les plats</option>
-                    <option value="Entrée">Entrée</option>
-                    <option value="Plat de résistance">Plat de résistance</option>
-                    <option value="Dessert">Dessert</option>
-                    <option value="Favoris">Favoris</option>
-                </select>
-                <button class="btn-trier" id="btn-tri">Trier</button>
+                <div class="trier">
+                    <select name="plat" id="plat-tri" class="select-tri">
+                        <option value="Tous">Tous les plats</option>
+                        <option value="Entrée">Entrée</option>
+                        <option value="Plat de résistance">Plat de résistance</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Favoris">Favoris</option>
+                    </select>
+                    <button class="btn-trier" id="btn-tri">Trier</button>
+                </div>
         </nav>
     </header>
     <main>
@@ -37,7 +46,6 @@
                 <input type="text" name="nom" id="nom" placeholder="Entrez le nom de votre plat" class="input" required>
                 <label for="plat">Type de plat</label>
                 <select name="plat" id="plat-form" class="select">
-                    <option value="Tous">Tous les plats</option>
                     <option value="Entrée">Entrée</option>
                     <option value="Plat de résistance">Plat de résistance</option>
                     <option value="Dessert">Dessert</option>
@@ -51,11 +59,9 @@
     </main>
     <footer>
         <ul class="ul">
-            <div class="li">
-                <li>Mentions légales</li>
-                <li>CGU</li>
-                <li>Contact</li>
-            </div>
+                <li class="li">Mentions légales</li>
+                <li class="li">CGU</li>
+                <li class="li">Contact</li>
         </ul>
     </footer>
 </body>

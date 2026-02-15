@@ -1,5 +1,5 @@
 //Const formulaire
-const searchInput = document.getElementById('search')
+const chercherInput = document.getElementById('search')
 const formRecette = document.getElementById('form-recette')
 const nomRecette = document.getElementById('nom')
 const recette = document.getElementById('recette')
@@ -9,10 +9,8 @@ const btnForm = document.getElementById('btn-form')
 let recettesFinies = JSON.parse(localStorage.getItem('recettesFinies')) || [];
 //Const pour l'affichage de la recette
 const afficherRecette = document.getElementById('afficher-recette')
+const chercherBouton = document.getElementById('chercher-mot')
 const trierBouton = document.getElementById('btn-tri')
-const favorisBouton = document.getElementById('favoris-btn')
-const supprimerBouton = document.getElementById('supprimer-btn')
-
 
 //Ecouteur d'évènements du formulaire
 formRecette.addEventListener('submit', function (e) {
@@ -65,13 +63,27 @@ function recettes(liste = recettesFinies) {
                 </div>
                 <h3><strong>${recetteFinie.plat}</strong></h3>
                 <p>${recetteFinie.recette}</p>
-                <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button> 
+                <button class="btn" onclick="supprimerRecette(${index})">Supprimer</button>
             </div>
         `;
     });
 }
+
+//Fonction de tri par mot
+function chercherMot() {
+    const mot = chercherInput.value.toLowerCase()
+    let resultats = [...recettesFinies];
+
+
+    if (mot) {
+        const rechs = resultats.filter(r => r.recette.toLowerCase().includes(mot));
+        recettes(rechs);
+        return;
+    }
+}
+
 //Fonction de tri par type de plat 
-function chercher() {
+function chercherPlat() {
     const plats = platTri.value;
 
     if (plats === "Favoris") {
@@ -79,6 +91,7 @@ function chercher() {
         recettes(favs);
         return;
     }
+
     if (plats === "Tous") {
         recettes();
         return;
@@ -88,5 +101,7 @@ function chercher() {
     recettes(afficherPlat);
 }
 
-trierBouton.addEventListener('click', chercher)
+//Ecouteurs d'évènements des boutons de nav
+chercherBouton.addEventListener('click', chercherMot)
+trierBouton.addEventListener('click', chercherPlat)
 
